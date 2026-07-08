@@ -219,3 +219,68 @@ flex-direction:column;
 }
 
 }
+
+/* ===========================
+   Weight Update Form
+=========================== */
+
+.weight-form {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.weight-form label {
+    width: 100%;
+    font-weight: bold;
+    color: #374151;
+}
+
+.weight-form input {
+    width: 180px;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.weight-form input:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.weight-form button {
+    padding: 12px 24px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.weight-form button:hover {
+    background: #1d4ed8;
+}
+
+.weight-form button:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 600px) {
+    .weight-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .weight-form input,
+    .weight-form button {
+        width: 100%;
+    }
+}

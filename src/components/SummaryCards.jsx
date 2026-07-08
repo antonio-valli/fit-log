@@ -1,37 +1,41 @@
-function SummaryCards() {
+function SummaryCards({
+  currentWeight,
+  goalWeight,
+  calories,
+  calorieGoal,
+  protein,
+  proteinGoal
+}) {
   const cards = [
     {
       title: "Current Weight",
-      value: "92.0 kg"
+      value: `${currentWeight.toFixed(1)} kg`
     },
     {
       title: "Goal Weight",
-      value: "85.0 kg"
+      value: `${goalWeight.toFixed(1)} kg`
     },
     {
       title: "Calories",
-      value: "1540 / 1700"
+      value: `${calories} / ${calorieGoal}`
     },
     {
       title: "Protein",
-      value: "165 g / 170 g"
+      value: `${protein} g / ${proteinGoal} g`
     }
   ];
 
   return (
     <section className="summary-grid">
-
       {cards.map((card) => (
         <article
           key={card.title}
           className="summary-card"
         >
           <h3>{card.title}</h3>
-
           <p>{card.value}</p>
         </article>
       ))}
-
     </section>
   );
 }
