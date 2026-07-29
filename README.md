@@ -6,20 +6,20 @@ This project was developed to strengthen my front-end development skills while l
 
 ---
 
-## 🚀 Features
+## Features
 
-- 📊 Interactive fitness dashboard
-- ⚖️ Track current weight and weight loss progress
-- 🍽️ Log daily calorie intake
-- 💪 Log daily protein intake
-- 🏋️ Select and save today's workout
-- 💾 Persistent data using Local Storage
-- 📱 Responsive design for desktop and mobile
-- ⚛️ Built using reusable React components
+- Interactive fitness dashboard
+- Track current weight and weight loss progress
+- Log daily calorie intake
+- Log daily protein intake
+- Select and save today's workout
+- Persistent data using Local Storage
+- Responsive design for desktop and mobile
+- Built using reusable React components
 
 ---
 
-## 🛠️ Built With
+## Built With
 
 - React
 - Vite
@@ -32,7 +32,7 @@ This project was developed to strengthen my front-end development skills while l
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 src/
@@ -56,7 +56,7 @@ src/
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Dashboard
 
@@ -75,7 +75,7 @@ src/
 ![Workout](assets/screenshots/finalWorkoutCard.png)
 ---
 
-## ⚙️ Installation
+## Installation
 
 Clone the repository:
 
@@ -103,7 +103,7 @@ npm run dev
 
 ---
 
-## 🎯 What I Learned
+## What I Learned
 
 Through this project I gained experience with:
 
@@ -117,7 +117,7 @@ Through this project I gained experience with:
 
 ---
 
-## 🔮 Future Improvements
+## Future Improvements
 
 Potential future features include:
 
@@ -131,6 +131,6 @@ Potential future features include:
 
 ---
 
-## 📄 License
+## License
 
 This project is licensed under the MIT License.
