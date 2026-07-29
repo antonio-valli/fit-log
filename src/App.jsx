@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 
+import DEFAULT_PROFILE from "./config/defaultProfile";
 import Header from "./components/Header";
 import SummaryCards from "./components/SummaryCards";
 import WeightSection from "./components/WeightSection";
@@ -13,22 +14,35 @@ function App() {
   const [currentWeight, setCurrentWeight] = useState(() => {
     const savedWeight = localStorage.getItem("currentWeight");
 
-    return savedWeight ? parseFloat(savedWeight) : 92.0;
+    return savedWeight
+      ? parseFloat(savedWeight)
+      : DEFAULT_PROFILE.startingWeight;
   });
 
   const [calories, setCalories] = useState(() => {
     const saved = localStorage.getItem("calories");
-    return saved ? parseInt(saved, 10) : 1650;
+    return saved
+      ? parseInt(saved, 10)
+      : DEFAULT_PROFILE.calorieGoal;
   });
 
   const [protein, setProtein] = useState(() => {
     const saved = localStorage.getItem("protein");
-    return saved ? parseInt(saved, 10) : 160;
+    return saved
+      ? parseInt(saved, 10)
+      : DEFAULT_PROFILE.proteinGoal;
   });
 
-  const calorieGoal = 1800;
-  const proteinGoal = 160;
-  const goalWeight = 75.0;
+  const [workout, setWorkout] = useState(() => {
+    return (
+      localStorage.getItem("workout") ??
+      DEFAULT_PROFILE.defaultWorkout
+    );
+  });
+
+  const calorieGoal = DEFAULT_PROFILE.calorieGoal;
+  const proteinGoal = DEFAULT_PROFILE.proteinGoal;
+  const goalWeight = DEFAULT_PROFILE.goalWeight;
 
   useEffect(() => {
     localStorage.setItem("currentWeight", currentWeight);
@@ -42,13 +56,22 @@ function App() {
     localStorage.setItem("protein", protein);
   }, [protein]);
 
+  useEffect(() => {
+    localStorage.setItem("workout", workout);
+  }, [workout]);
+
 
   function updateNutrition(newCalories, newProtein) {
     setCalories(newCalories);
     setProtein(newProtein);
   }
 
-  const weeklyChange = currentWeight - 92.0;
+  function updateWorkout(newWorkout) {
+    setWorkout(newWorkout);
+  }
+
+  const totalWeightLost =
+    DEFAULT_PROFILE.startingWeight - currentWeight;
 
   function updateWeight(newWeight) {
     setCurrentWeight(newWeight);
@@ -71,7 +94,7 @@ function App() {
         <WeightSection
           currentWeight={currentWeight}
           goalWeight={goalWeight}
-          weeklyChange={weeklyChange}
+          totalWeightLost={totalWeightLost}
           updateWeight={updateWeight}
         />
 
@@ -83,7 +106,11 @@ function App() {
           updateNutrition={updateNutrition}
         />
 
-        <WorkoutSection />
+        <WorkoutSection
+          workout={workout}
+          updateWorkout={updateWorkout}
+        />
+        
       </main>
 
       <Footer />

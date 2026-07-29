@@ -3,7 +3,7 @@ import { useState } from "react";
 function WeightSection({
   currentWeight,
   goalWeight,
-  weeklyChange,
+  totalWeightLost,
   updateWeight
 }) {
   const [weightInput, setWeightInput] = useState(currentWeight.toFixed(1));
@@ -37,8 +37,8 @@ function WeightSection({
         </div>
 
         <div className="weight-card">
-          <h3>Weekly Change</h3>
-          <p>{weeklyChange.toFixed(1)} kg</p>
+          <h3>Weight Lost</h3>
+          <p>{totalWeightLost.toFixed(1)} kg</p>
         </div>
       </div>
 

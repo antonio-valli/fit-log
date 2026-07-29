@@ -1,110 +1,123 @@
-# FitLog
+# 🏋️ FitLog
 
-A personal fitness tracking web application built around my own weight loss journey while learning modern software engineering practices.
+A responsive fitness tracking web application built with **React** and **Vite** that allows users to track their weight, nutrition, and daily workouts through a clean dashboard interface.
 
-Rather than creating a generic gym tracker, FitLog is designed specifically around the information I care about every day—tracking body weight, calorie intake, protein intake and workouts. This project is the first in my software engineering portfolio and documents the complete development process from planning through to deployment.
-
----
-
-## Project Goals
-
-- Build a clean and responsive fitness tracking application
-- Strengthen my React and JavaScript fundamentals
-- Learn professional Git and GitHub workflows
-- Practise software planning, documentation and version control
-- Create a polished portfolio project demonstrating software engineering fundamentals
+This project was developed to strengthen my front-end development skills while learning modern React concepts including state management, reusable components, controlled forms, and persistent storage.
 
 ---
 
-## Planned Features
+## 🚀 Features
 
-- Dashboard overview
-- Daily weight tracking
-- Workout logging
-- Nutrition tracking
-- Progress history
-- Responsive user interface
+- 📊 Interactive fitness dashboard
+- ⚖️ Track current weight and weight loss progress
+- 🍽️ Log daily calorie intake
+- 💪 Log daily protein intake
+- 🏋️ Select and save today's workout
+- 💾 Persistent data using Local Storage
+- 📱 Responsive design for desktop and mobile
+- ⚛️ Built using reusable React components
 
 ---
 
-## Tech Stack
-
-### Frontend
+## 🛠️ Built With
 
 - React
-- JavaScript
-- CSS
-- HTML
-
-### Development Tools
-
 - Vite
+- JavaScript (ES6+)
+- HTML5
+- CSS3
+- Local Storage API
 - Git
 - GitHub
-- Visual Studio Code
 
 ---
 
-## Project Status
+## 📂 Project Structure
 
-🟡 **In Development**
-
-Current Stage:
-
-- ✅ Repository created
-- ✅ Project planned
-- ✅ React environment configured
-- 🚧 Building application interface
-- ⏳ Functionality coming next
-
----
-
-## Repository Structure
-
-```text
-fitlog/
+```
+src/
+├── components/
+│   ├── Header.jsx
+│   ├── SummaryCards.jsx
+│   ├── WeightSection.jsx
+│   ├── NutritionSection.jsx
+│   ├── WorkoutSection.jsx
+│   └── Footer.jsx
 │
-├── assets/
-├── checkpoints/
-├── docs/
-├── src/
-├── README.md
-├── LICENSE
-└── .gitignore
+├── config/
+│   └── defaultProfile.js
+│
+├── styles/
+│   └── App.css
+│
+├── App.jsx
+└── main.jsx
 ```
 
 ---
 
-## Development Roadmap
+## 📸 Screenshots
 
-- Repository Setup
-- Project Planning
-- React Environment
-- Dashboard Interface
-- Weight Tracking
-- Nutrition Tracking
-- Workout Logging
-- Progress History
-- UI Improvements
-- Testing
-- Final Documentation
+Screenshots will be added after deployment.
 
 ---
 
-## Screenshots
+## ⚙️ Installation
 
-Screenshots will be added as development progresses.
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR_USERNAME/FitLog.git
+```
+
+Navigate into the project:
+
+```bash
+cd FitLog
+```
+
+Install dependencies:
+
+```bash
+npm install
+```
+
+Start the development server:
+
+```bash
+npm run dev
+```
 
 ---
 
-## Why I Built This
+## 🎯 What I Learned
 
-I wanted to build something that I would genuinely use every day.
+Through this project I gained experience with:
 
-As someone currently working towards losing weight while maintaining muscle, I wanted a simple application tailored to my own routine instead of relying on generic fitness apps. At the same time, this project provides an opportunity to learn React, improve my software engineering skills, and document a professional development process from start to finish.
+- Building reusable React components
+- Managing application state using React Hooks
+- Passing data between components with props
+- Creating controlled forms
+- Persisting data using Local Storage
+- Organising React applications into reusable modules
+- Managing a project using Git and GitHub
 
 ---
 
-## License
+## 🔮 Future Improvements
+
+Potential future features include:
+
+- User authentication
+- Exercise history
+- Weight progress charts
+- Nutrition history
+- Dark mode
+- Cloud database integration
+- Backend API support
+
+---
+
+## 📄 License
 
 This project is licensed under the MIT License.

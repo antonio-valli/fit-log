@@ -349,3 +349,91 @@ flex-direction:column;
         width: 100%;
     }
 }
+
+/* ===========================
+   Workout Form
+=========================== */
+
+.workout-form {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    align-items: flex-end;
+    flex-wrap: wrap;
+}
+
+.workout-form label {
+    width: 100%;
+    font-weight: bold;
+    color: #374151;
+}
+
+.workout-form select {
+    width: 220px;
+    padding: 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: white;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.workout-form select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.workout-form button {
+    padding: 12px 24px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.workout-form button:hover {
+    background: #1d4ed8;
+}
+
+.workout-form button:active {
+    transform: translateY(1px);
+}
+
+@media (max-width: 600px) {
+    .workout-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .workout-form select,
+    .workout-form button {
+        width: 100%;
+    }
+}
+
+.progress-bar {
+    width: 100%;
+    height: 10px;
+    margin-top: 12px;
+    background: #e5e7eb;
+    border-radius: 999px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #2563eb;
+    transition: width 0.4s ease;
+}
+
+.summary-card small {
+    display: block;
+    margin-top: 8px;
+    color: #6b7280;
+    font-weight: 600;
+}
