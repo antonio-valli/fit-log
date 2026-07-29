@@ -16,15 +16,37 @@ function App() {
     return savedWeight ? parseFloat(savedWeight) : 92.0;
   });
 
+  const [calories, setCalories] = useState(() => {
+    const saved = localStorage.getItem("calories");
+    return saved ? parseInt(saved, 10) : 1650;
+  });
+
+  const [protein, setProtein] = useState(() => {
+    const saved = localStorage.getItem("protein");
+    return saved ? parseInt(saved, 10) : 160;
+  });
+
+  const calorieGoal = 1800;
+  const proteinGoal = 160;
+  const goalWeight = 75.0;
+
   useEffect(() => {
     localStorage.setItem("currentWeight", currentWeight);
   }, [currentWeight]);
 
-  const goalWeight = 85.0;
-  const calories = 1540;
-  const calorieGoal = 1700;
-  const protein = 165;
-  const proteinGoal = 170;
+  useEffect(() => {
+    localStorage.setItem("calories", calories);
+  }, [calories]);
+
+  useEffect(() => {
+    localStorage.setItem("protein", protein);
+  }, [protein]);
+
+
+  function updateNutrition(newCalories, newProtein) {
+    setCalories(newCalories);
+    setProtein(newProtein);
+  }
 
   const weeklyChange = currentWeight - 92.0;
 
@@ -53,7 +75,13 @@ function App() {
           updateWeight={updateWeight}
         />
 
-        <NutritionSection />
+        <NutritionSection
+          calories={calories}
+          calorieGoal={calorieGoal}
+          protein={protein}
+          proteinGoal={proteinGoal}
+          updateNutrition={updateNutrition}
+        />
 
         <WorkoutSection />
       </main>

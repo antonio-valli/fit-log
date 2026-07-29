@@ -1,55 +1,81 @@
-function NutritionSection() {
-  const meals = [
-    {
-      meal: "Breakfast",
-      food: "Protein Shake"
-    },
-    {
-      meal: "Lunch",
-      food: "Chicken & Rice Bowl"
-    },
-    {
-      meal: "Dinner",
-      food: "Chicken Wrap"
+import { useState } from "react";
+
+function NutritionSection({
+  calories,
+  calorieGoal,
+  protein,
+  proteinGoal,
+  updateNutrition
+}) {
+  const [calorieInput, setCalorieInput] = useState(calories);
+  const [proteinInput, setProteinInput] = useState(protein);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    const newCalories = parseInt(calorieInput, 10);
+    const newProtein = parseInt(proteinInput, 10);
+
+    if (
+      isNaN(newCalories) ||
+      isNaN(newProtein) ||
+      newCalories < 0 ||
+      newProtein < 0
+    ) {
+      alert("Please enter valid nutrition values.");
+      return;
     }
-  ];
+
+    updateNutrition(newCalories, newProtein);
+  }
 
   return (
     <section className="dashboard-section">
-      <h2>Today's Nutrition</h2>
+      <h2>Nutrition</h2>
 
-      <div className="nutrition-card">
-
-        {meals.map((item) => (
-          <div
-            key={item.meal}
-            className="meal-row"
-          >
-            <span className="meal-title">
-              {item.meal}
-            </span>
-
-            <span className="meal-food">
-              {item.food}
-            </span>
-          </div>
-        ))}
-
-        <div className="nutrition-totals">
-
-          <div className="total-item">
-            <h3>Calories</h3>
-            <p>1540 / 1700 kcal</p>
-          </div>
-
-          <div className="total-item">
-            <h3>Protein</h3>
-            <p>165 g / 170 g</p>
-          </div>
-
+      <div className="weight-grid">
+        <div className="weight-card">
+          <h3>Calories</h3>
+          <p>
+            {calories} / {calorieGoal}
+          </p>
         </div>
 
+        <div className="weight-card">
+          <h3>Protein</h3>
+          <p>
+            {protein} g / {proteinGoal} g
+          </p>
+        </div>
       </div>
+
+      <form className="nutrition-form" onSubmit={handleSubmit}>
+        <label htmlFor="calories">
+          Calories
+        </label>
+
+        <input
+          id="calories"
+          type="number"
+          value={calorieInput}
+          onChange={(event) => setCalorieInput(event.target.value)}
+        />
+
+        <label htmlFor="protein">
+          Protein (g)
+        </label>
+
+        <input
+          id="protein"
+          type="number"
+          value={proteinInput}
+          onChange={(event) => setProteinInput(event.target.value)}
+        />
+
+        <button type="submit">
+          Save Nutrition
+        </button>
+      </form>
     </section>
   );
 }
