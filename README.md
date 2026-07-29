@@ -58,8 +58,21 @@ src/
 
 ## 📸 Screenshots
 
-Screenshots will be added after deployment.
+### Dashboard
 
+![Dashboard](assets/screenshots/finalDashboard.png)
+
+### Weight Tracking
+
+![Weight](assets/screenshots/finalWeightCard.png)
+
+### Nutrition Tracking
+
+![Nutrition](assets/screenshots/finalNutritionCard.png)
+
+### Workout Tracking
+
+![Workout](assets/screenshots/finalWorkoutCard.png)
 ---
 
 ## ⚙️ Installation
