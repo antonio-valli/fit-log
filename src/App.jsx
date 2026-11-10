@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from "react";
 
 import DEFAULT_PROFILE from "./config/defaultProfile";
@@ -8,19 +9,22 @@ import NutritionSection from "./components/NutritionSection";
 import WorkoutSection from "./components/WorkoutSection";
 import Footer from "./components/Footer";
 
+import {
+  getLocalDate,
+  loadWeightHistory,
+  saveWeightHistory
+} from "./utils/weightHistory";
+
 import "./styles/App.css";
 
 function App() {
-  const [currentWeight, setCurrentWeight] = useState(() => {
-    const savedWeight = localStorage.getItem("currentWeight");
-
-    return savedWeight
-      ? parseFloat(savedWeight)
-      : DEFAULT_PROFILE.startingWeight;
-  });
+  const [weightHistory, setWeightHistory] = useState(() =>
+    loadWeightHistory(DEFAULT_PROFILE.startingWeight)
+  );
 
   const [calories, setCalories] = useState(() => {
     const saved = localStorage.getItem("calories");
+
     return saved
       ? parseInt(saved, 10)
       : DEFAULT_PROFILE.calorieGoal;
@@ -28,6 +32,7 @@ function App() {
 
   const [protein, setProtein] = useState(() => {
     const saved = localStorage.getItem("protein");
+
     return saved
       ? parseInt(saved, 10)
       : DEFAULT_PROFILE.proteinGoal;
@@ -44,9 +49,20 @@ function App() {
   const proteinGoal = DEFAULT_PROFILE.proteinGoal;
   const goalWeight = DEFAULT_PROFILE.goalWeight;
 
+  const latestWeightEntry = weightHistory.at(-1);
+
+  const currentWeight = latestWeightEntry
+    ? latestWeightEntry.weight
+    : DEFAULT_PROFILE.startingWeight;
+
+  const totalWeightLost =
+    DEFAULT_PROFILE.startingWeight - currentWeight;
+
   useEffect(() => {
+    saveWeightHistory(weightHistory);
+
     localStorage.setItem("currentWeight", currentWeight);
-  }, [currentWeight]);
+  }, [weightHistory, currentWeight]);
 
   useEffect(() => {
     localStorage.setItem("calories", calories);
@@ -60,7 +76,6 @@ function App() {
     localStorage.setItem("workout", workout);
   }, [workout]);
 
-
   function updateNutrition(newCalories, newProtein) {
     setCalories(newCalories);
     setProtein(newProtein);
@@ -70,11 +85,31 @@ function App() {
     setWorkout(newWorkout);
   }
 
-  const totalWeightLost =
-    DEFAULT_PROFILE.startingWeight - currentWeight;
-
   function updateWeight(newWeight) {
-    setCurrentWeight(newWeight);
+    const today = getLocalDate();
+
+    setWeightHistory((previousHistory) => {
+      const existingEntry = previousHistory.find(
+        (entry) => entry.date === today
+      );
+
+      if (existingEntry) {
+        return previousHistory.map((entry) =>
+          entry.date === today
+            ? { ...entry, weight: newWeight }
+            : entry
+        );
+      }
+
+      return [
+        ...previousHistory,
+        {
+          id: today,
+          date: today,
+          weight: newWeight
+        }
+      ].sort((a, b) => a.date.localeCompare(b.date));
+    });
   }
 
   return (
@@ -110,7 +145,6 @@ function App() {
           workout={workout}
           updateWorkout={updateWorkout}
         />
-        
       </main>
 
       <Footer />
