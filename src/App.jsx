@@ -1,6 +1,5 @@
-
 import { useEffect, useState } from "react";
-
+import WeightHistory from "./components/WeightHistory";
 import DEFAULT_PROFILE from "./config/defaultProfile";
 import Header from "./components/Header";
 import SummaryCards from "./components/SummaryCards";
@@ -112,6 +111,12 @@ function App() {
     });
   }
 
+  function deleteWeight(entryId) {
+  setWeightHistory((previousHistory) =>
+    previousHistory.filter((entry) => entry.id !== entryId)
+  );
+}
+
   return (
     <div className="app">
       <Header />
@@ -131,6 +136,11 @@ function App() {
           goalWeight={goalWeight}
           totalWeightLost={totalWeightLost}
           updateWeight={updateWeight}
+        />
+
+        <WeightHistory
+          history={weightHistory}
+          deleteWeight={deleteWeight}
         />
 
         <NutritionSection
