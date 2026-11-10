@@ -80,13 +80,13 @@ src/
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/FitLog.git
+git clone https://github.com/antonio-valli/fit-log.git
 ```
 
 Navigate into the project:
 
 ```bash
-cd FitLog
+cd fit-log
 ```
 
 Install dependencies:
