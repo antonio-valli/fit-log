@@ -7,6 +7,7 @@ import WeightSection from "./components/WeightSection";
 import NutritionSection from "./components/NutritionSection";
 import WorkoutSection from "./components/WorkoutSection";
 import Footer from "./components/Footer";
+import WeightChart from "./components/WeightChart";
 
 import {
   getLocalDate,
@@ -141,6 +142,11 @@ function App() {
         <WeightHistory
           history={weightHistory}
           deleteWeight={deleteWeight}
+        />
+
+        <WeightChart
+          history={weightHistory}
+          goalWeight={goalWeight}
         />
 
         <NutritionSection
