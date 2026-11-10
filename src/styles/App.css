@@ -437,3 +437,105 @@ flex-direction:column;
     color: #6b7280;
     font-weight: 600;
 }
+
+/* ===========================
+   Weight History
+=========================== */
+
+.history-table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+}
+
+.history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    text-align: left;
+}
+
+.history-table th {
+    background: #f3f4f6;
+    color: #374151;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding: 15px;
+    white-space: nowrap;
+}
+
+.history-table td {
+    padding: 15px;
+    border-bottom: 1px solid #e5e7eb;
+    font-size: 0.95rem;
+}
+
+.history-table tbody tr:hover {
+    background: #f9fafb;
+}
+
+.history-table th:last-child,
+.history-table td:last-child {
+    text-align: right;
+}
+
+.history-delete {
+    background: #fee2e2;
+    color: #b91c1c;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s ease;
+}
+
+.history-delete:hover {
+    background: #fecaca;
+}
+
+.history-delete:focus-visible {
+    outline: 2px solid #b91c1c;
+    outline-offset: 2px;
+}
+
+.history-empty {
+    color: #6b7280;
+    font-size: 0.95rem;
+    padding: 10px 0;
+}
+
+@media (max-width: 600px) {
+    .history-table th,
+    .history-table td {
+        padding: 12px 10px;
+        font-size: 0.85rem;
+    }
+
+    .history-delete {
+        padding: 7px 9px;
+        font-size: 0.8rem;
+    }
+}
+/* ===========================
+   Weight Progress Chart
+=========================== */
+
+.chart-container {
+    width: 100%;
+    overflow-x: auto;
+    margin-top: 10px;
+}
+
+.chart-container svg {
+    display: block;
+    width: 100%;
+    min-width: 320px;
+    height: auto;
+}
+
+.chart-empty {
+    color: #6b7280;
+    font-size: 0.95rem;
+    padding: 10px 0;
+}
